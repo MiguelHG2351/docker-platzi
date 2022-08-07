@@ -125,3 +125,22 @@ $ docker -it ubuntu (lo corre y entro al shell de ubuntu)
 
 cat /etc/lsb-release (veo la versión de Linux)
 ```
+
+## Ciclo de vida de un contenedor
+
+```bash
+$ docker ps -a (veo todos los contenedores)
+$ docker --name <nombre> -d ubuntu -f <comando>
+$ docker --name alwaysup -d ubuntu tail -f /dev/null (mantiene el contenedor activo)
+$ docker exec -it alwaysup bash (entro al contenedor)
+$ docker inspect --format ‘{{.State.Pid}}’ alwaysup (veo el main process del ubuntu)
+desde Linux si ejecuto kill -9 <PID> mata el proceso dentro del contenedor de ubuntu pero desde MAC no funciona
+```
+
+## Algunos comandos que aprendi en el camino haciendo experimentos con docker en una vm de linux
+
+Pasar una lista de archivos usando una regex [Referencia](https://superuser.com/questions/392872/delete-files-with-regular-expression)
+
+```bash
+ls | grep -P "^A.*[0-9]{2}$" | xargs -d"\n" rm
+```
