@@ -58,9 +58,16 @@ Una forma de transportar software, algunas de sus ventajas pueden ser:
 
 - Seguros: Solo puede acceder a lo que necesita, no a otros contenedores, máquina anfitriona, etc.
 
+## Conceptos fundamentales: Docker
+
+Es como una VM, pero más ligera y rápida.
+
+![docker](./readme_files/8323.1565281088.png)
+
 ## Instalación de Docker
 
 En windows solo se le da siguiente :v [](https://docs.docker.com/install/windows/)
+
 
 ### Instalación en Linux
 
@@ -75,6 +82,28 @@ Ahí estan las guías :D [Link](https://docs.docker.com/get-docker/)
 
 [Imagen con comandos de Docker](./readme_files/cheatsheet.webp)
 
+Comandos:
+```bash
+$ docker run hello-world (corro el contenedor hello-world)
+$ docker ps (muestra los contenedores activos)
+$ docker ps -a (muestra todos los contenedores)
+$ docker inspect <containe ID> (muestra el detalle completo de un contenedor)
+$ docker inspect <name> (igual que el anterior pero invocado con el nombre)
+$ docker run –-name hello-platzi hello-world (le asigno un nombre custom “hello-platzi”)
+$ docker rename hello-platzi hola-platzy (cambio el nombre de hello-platzi a hola-platzi)
+$ docker rm <ID o nombre> (borro un contenedor)
+$ docker container prune Comandos:
+$ docker run hello-world (corro el contenedor hello-world)
+$ docker ps (muestra los contenedores activos)
+$ docker ps -a (muestra todos los contenedores)
+$ docker inspect <containe ID> (muestra el detalle completo de un contenedor)
+$ docker inspect <name> (igual que el anterior pero invocado con el nombre)
+$ docker run –-name hello-platzi hello-world (le asigno un nombre custom “hello-platzi”)
+$ docker rename hello-platzi hola-platzy (cambio el nombre de hello-platzi a hola-platzi)
+$ docker rm <ID o nombre> (borro un contenedor)
+$ docker container prune (borro todos lo contenedores que esten parados)
+```
+
 ## Posibles errores en docker
 
 docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.
@@ -83,4 +112,16 @@ See 'docker run --help'.
 ```bash
 sudo usermod -aG docker $USER
 sudo reboot
+```
+
+## Modo interactivo
+
+```bash
+$ docker run ubuntu (corre un ubuntu pero lo deja apagado)
+$ docker ps -a (lista todos los contenedores)
+$ docker -it ubuntu (lo corre y entro al shell de ubuntu)
+-i: interactivo
+-t: abre la consola
+
+cat /etc/lsb-release (veo la versión de Linux)
 ```
