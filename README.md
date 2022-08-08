@@ -192,7 +192,7 @@ $ docker logs --tail 10 -f proxy
 
 ### Agregando reglas para vm en azure
 
-[Azure NSG](./readme_files/azure-network.PNG)
+![Azure NSG](./readme_files/azure-network.PNG)
 
 ## Volumenes
 
