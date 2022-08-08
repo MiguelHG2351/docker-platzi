@@ -80,7 +80,7 @@ Ahí estan las guías :D [Link](https://docs.docker.com/get-docker/)
 
 ## Hoja de comandos del CLI de Docker
 
-[Imagen con comandos de Docker](./readme_files/cheatsheet.webp)
+![Imagen con comandos de Docker](./readme_files/cheatsheet.webp)
 
 Comandos:
 ```bash
