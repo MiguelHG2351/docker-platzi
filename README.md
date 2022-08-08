@@ -84,24 +84,24 @@ Ahí estan las guías :D [Link](https://docs.docker.com/get-docker/)
 
 Comandos:
 ```bash
-$ docker run hello-world (corro el contenedor hello-world)
-$ docker ps (muestra los contenedores activos)
-$ docker ps -a (muestra todos los contenedores)
-$ docker inspect <containe ID> (muestra el detalle completo de un contenedor)
-$ docker inspect <name> (igual que el anterior pero invocado con el nombre)
-$ docker run –-name hello-platzi hello-world (le asigno un nombre custom “hello-platzi”)
-$ docker rename hello-platzi hola-platzy (cambio el nombre de hello-platzi a hola-platzi)
-$ docker rm <ID o nombre> (borro un contenedor)
-$ docker container prune Comandos:
-$ docker run hello-world (corro el contenedor hello-world)
-$ docker ps (muestra los contenedores activos)
-$ docker ps -a (muestra todos los contenedores)
-$ docker inspect <containe ID> (muestra el detalle completo de un contenedor)
-$ docker inspect <name> (igual que el anterior pero invocado con el nombre)
-$ docker run –-name hello-platzi hello-world (le asigno un nombre custom “hello-platzi”)
-$ docker rename hello-platzi hola-platzy (cambio el nombre de hello-platzi a hola-platzi)
-$ docker rm <ID o nombre> (borro un contenedor)
-$ docker container prune (borro todos lo contenedores que esten parados)
+# corro el contenedor hello-world
+$ docker run hello-world
+# muestra los contenedores activos
+$ docker ps
+# muestra todos los contenedores
+$ docker ps -a
+# muestra el detalle completo de un contenedor
+$ docker inspect <containe ID>
+# igual que el anterior pero invocado con el nombre
+$ docker inspect <name>
+# le asigno un nombre custom “hello-platzi”
+$ docker run –-name hello-platzi hello-world
+# cambio el nombre de hello-platzi a hola-platzy
+$ docker rename hello-platzi hola-platzy
+# borro un contenedor
+$ docker rm <ID o nombre>
+# borro todos lo contenedores que esten parados
+$ docker container prune
 ```
 
 ## Posibles errores en docker
