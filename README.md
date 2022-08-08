@@ -129,12 +129,84 @@ cat /etc/lsb-release (veo la versión de Linux)
 ## Ciclo de vida de un contenedor
 
 ```bash
-$ docker ps -a (veo todos los contenedores)
+# veo todos los contenedores
+$ docker ps -a
+# template de flag detachable
 $ docker --name <nombre> -d ubuntu -f <comando>
-$ docker --name alwaysup -d ubuntu tail -f /dev/null (mantiene el contenedor activo)
-$ docker exec -it alwaysup bash (entro al contenedor)
-$ docker inspect --format ‘{{.State.Pid}}’ alwaysup (veo el main process del ubuntu)
-desde Linux si ejecuto kill -9 <PID> mata el proceso dentro del contenedor de ubuntu pero desde MAC no funciona
+# mantiene el contenedor activo
+$ docker --name alwaysup -d ubuntu tail -f /dev/null
+# entro al contenedor
+$ docker exec -it alwaysup bash
+# Detiene el contenedor pero se puede ver en el comando docker ps -a
+$ docker stop alwaysup
+# veo el main process del ubuntu (foreground)
+$ docker inspect --format ‘{{.State.Pid}}’ alwaysup
+# desde Linux si ejecuto kill -9 <PID> mata el proceso dentro del contenedor de ubuntu pero desde MAC no funciona
+```
+
+El flag -d es un detach para correr en background
+
+## Exponiendo contenedores
+
+En esta clase hubieron temas interesantes como la creación de un server en nginx
+
+### Creando un contenedor con nginx e instalando nginx
+
+Descargamos la imagen :D
+
+```bash
+$ docker run -d --name proxy nginx
+```
+
+Apaga el contenedor
+
+```bash
+$ docker stop proxy
+```
+
+Hacemos publico el puerto del contenedor en el puerto del equipo local 8080. Si no escribimos el detach entonces se quedara la consola recibiendo peticiones
+
+```bash
+$ docker run -d --name proxy -p 8080:80 nginx
+```
+
+### Mirar los logs de un contenedor
+
+Ver los logs completos
+
+```bash
+$ docker logs proxy
+```
+
+Ver los logs completos y escuchando los que siguen
+
+```bash
+$ docker logs -f proxy
+```
+
+Ver los últimos 10 logs y escuchar los que siguen
+
+```bash
+$ docker logs --tail 10 -f proxy
+```
+
+### Agregando reglas para vm en azure
+
+[Azure NSG](./readme_files/azure-network.PNG)
+
+## Volumenes
+
+```bash
+# listo los volumes
+$ docker volume ls
+# creo un volume
+$ docker volume create dbdata
+# corro la BBDD y monto el volume
+$ docker run -d --name db --mount src=dbdata,dst=/data/db mongo
+# veo la información detallada del contenedor
+$ docker inspect db
+# me conecto a la BBDD
+$ mongo
 ```
 
 ## Algunos comandos que aprendi en el camino haciendo experimentos con docker en una vm de linux
@@ -143,4 +215,10 @@ Pasar una lista de archivos usando una regex [Referencia](https://superuser.com/
 
 ```bash
 ls | grep -P "^A.*[0-9]{2}$" | xargs -d"\n" rm
+```
+
+El peso de una carpeta **Puede ser una regex :D** [Referencia](https://linuxize.com/post/how-get-size-of-file-directory-linux/)
+
+```bash
+sudo du -shc ./
 ```
