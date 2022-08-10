@@ -196,6 +196,8 @@ $ docker logs --tail 10 -f proxy
 
 ## Volumenes
 
+Es como usar los **bind mounts** pero solo docker puede acceder a la información de esos archivos.
+
 ```bash
 # listo los volumes
 $ docker volume ls
@@ -207,6 +209,26 @@ $ docker run -d --name db --mount src=dbdata,dst=/data/db mongo
 $ docker inspect db
 # me conecto a la BBDD
 $ mongo
+```
+
+## Insertar y extraer datos de un contenedor
+
+```bash
+Comandos:
+
+# creo un archivo en mi máquina
+$ touch prueba.txt
+# corron un ubuntu y le agrego el tail con -f para que quede activo
+$ docker run -d --name copytest ubuntu tail -f /dev/null
+# entro al contenedor
+$ docker exec -it copytest bash
+# creo un directorio en el contenedor
+$ mkdir testing
+# copio el archivo dentro del contenedor
+$ docker cp prueba.txt copytest:/testing/test.txt
+# copio el directorio de un contenedor a mi máquina
+$ docker cp copytest:/testing localtesting
+con “docker cp” no hace falta que el contenedor esté corriendo
 ```
 
 ## Algunos comandos que aprendi en el camino haciendo experimentos con docker en una vm de linux
