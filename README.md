@@ -311,6 +311,10 @@ La interfaz luce asi y podras cambiar entre los layers y contenido con el **tab*
 
 ![dive](./readme_files/dive_ui.png)
 
+## Aprovechando el caché de capas para estructurar correctamente tus imágenes
+
+Si modificas la imagen base se reconstruye todo devuelta (vuelve a instalar todo en vez de reusar la imagen) Esto es por la estructura del Dockerfile
+
 ## Algunos comandos que aprendi en el camino haciendo experimentos con docker en una vm de linux
 
 Pasar una lista de archivos usando una regex [Referencia](https://superuser.com/questions/392872/delete-files-with-regular-expression)
