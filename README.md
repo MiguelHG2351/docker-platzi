@@ -289,6 +289,28 @@ Al final no creas un nuevo contenedor solo es otra etiqueta
 
 ![Al final no creas un nuevo contenedor solo es otra etiqueta](./readme_files/tag.png)
 
+## El sistema de capas
+
+Al final una imagen es un conjunto de capas ordenadas las cuales podemos visualizar con el comando:
+
+```bash
+$ docker history <image_name>
+```
+
+Sin embargo es algo complejo de leer por lo que hay otra mejor alternativa, usando [dive](https://github.com/wagoodman/dive)
+
+La puedes instalar facilmente siguiento a doc, por ejemplo en Ubuntu seria:
+
+```bash
+$ wget https://github.com/wagoodman/dive/releases/download/v0.9.2/dive_0.9.2_linux_amd64.deb
+
+$ sudo apt install ./dive_0.9.2_linux_amd64.deb
+```
+
+La interfaz luce asi y podras cambiar entre los layers y contenido con el **tab** de tu teclado:
+
+![dive](./readme_files/dive_ui.png)
+
 ## Algunos comandos que aprendi en el camino haciendo experimentos con docker en una vm de linux
 
 Pasar una lista de archivos usando una regex [Referencia](https://superuser.com/questions/392872/delete-files-with-regular-expression)
