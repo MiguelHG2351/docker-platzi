@@ -231,6 +231,64 @@ $ docker cp copytest:/testing localtesting
 con “docker cp” no hace falta que el contenedor esté corriendo
 ```
 
+## Conceptos fundamentales de Docker: Images
+
+Una forma sencilla de ver una imagen es tomando por ejemplo la POO, si la instancia de una clase es un contenedor entonces la imagen es la clase
+
+Listar la imagenes:
+
+```bash
+$ docker images ls
+```
+
+Descargar una imagen de docker hub
+
+```bash
+$ docker pull ubuntu:16.04
+```
+
+## Construyendo nuestra propia imagen.
+
+Al final las imagenes son un conjunto de capas.
+
+![Dockerfile](./readme_files/capa.png)
+
+Para crear nuestra propia imagen primero necesitamos un archivo llamado **Dockerfile** En el caso de este repo la cree en la carpeta custom.
+
+```bash
+$ docker build -t <base_image>:<tag_name> <Dockerfile_context>
+```
+
+```bash
+$ docker build -t ubuntu:platzi .
+```
+
+Para poder subir tu imagen a docker hub primer ejecutas:
+
+```bash
+$ docker login
+```
+
+Esto sera similar a git
+
+```bash
+$ docker push <base_image>:<tag_name>
+```
+
+```bash
+$ docker push ubuntu:platzi
+```
+
+Cambiar el tag de una imagen
+
+```bash
+docker tag ubuntu:platzi miguel2351/ubuntu:platzi
+```
+
+Al final no creas un nuevo contenedor solo es otra etiqueta
+
+![Al final no creas un nuevo contenedor solo es otra etiqueta](./readme_files/tag.png)
+
 ## Algunos comandos que aprendi en el camino haciendo experimentos con docker en una vm de linux
 
 Pasar una lista de archivos usando una regex [Referencia](https://superuser.com/questions/392872/delete-files-with-regular-expression)
