@@ -313,7 +313,9 @@ La interfaz luce asi y podras cambiar entre los layers y contenido con el **tab*
 
 ## Aprovechando el caché de capas para estructurar correctamente tus imágenes
 
-Si modificas la imagen base se reconstruye todo devuelta (vuelve a instalar todo en vez de reusar la imagen) Esto es por la estructura del Dockerfile
+Si modificas la imagen base se reconstruye todo devuelta (vuelve a instalar todo en vez de reusar la imagen) Esto es por la estructura del Dockerfile.
+
+En el ejemplo de platziapp 
 
 ## Algunos comandos que aprendi en el camino haciendo experimentos con docker en una vm de linux
 
@@ -326,5 +328,5 @@ ls | grep -P "^A.*[0-9]{2}$" | xargs -d"\n" rm
 El peso de una carpeta **Puede ser una regex :D** [Referencia](https://linuxize.com/post/how-get-size-of-file-directory-linux/)
 
 ```bash
-sudo du -shc ./
+$ sudo du -shc ./
 ```
